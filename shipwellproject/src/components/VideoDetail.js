@@ -1,18 +1,23 @@
 import React from "react";
-import VideoItem from "./VideoItem";
 
-const VideoList = ({ videos, onVideoSelect }) => {
-  const renderedList = videos.map(video => {
-    return (
-      <VideoItem
-        key={video.id.videoId}
-        onVideoSelect={onVideoSelect}
-        video={video}
-      />
-    );
-  });
+const VideoDetail = ({ video }) => {
+  if (!video) {
+    return <div>Loading...</div>;
+  }
 
-  return <div className="ui relaxed divided list">{renderedList}</div>;
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+
+  return (
+    <div>
+      <div className="ui embed">
+        <iframe title="video player" src={videoSrc} />
+      </div>
+      <div className="ui segment">
+        <h4 className="ui header">{video.snippet.title}</h4>
+        <p>{video.snippet.description}</p>
+      </div>
+    </div>
+  );
 };
 
-export default VideoList;
+export default VideoDetail;
