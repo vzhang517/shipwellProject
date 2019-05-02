@@ -7,10 +7,10 @@ import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
 
 class App extends React.Component {
-  state = { videos: [], selectedVideo: null };
+  state = { videos: [], selectedVideo: null, savedVideos: [] };
 
   componentDidMount() {
-    this.onTermSubmit("movie trailers");
+    this.onTermSubmit("planet earth");
   }
 
   onTermSubmit = async term => {
@@ -20,6 +20,8 @@ class App extends React.Component {
       }
     });
 
+    console.log(response.data.items);
+
     this.setState({
       videos: response.data.items,
       selectedVideo: response.data.items[0]
@@ -28,6 +30,19 @@ class App extends React.Component {
 
   onVideoSelect = video => {
     this.setState({ selectedVideo: video });
+    console.log(video);
+  };
+
+  setSavedVideos = () => {
+    let values = [],
+      keys = Object.keys(localStorage),
+      i = keys.length;
+
+    while (i--) {
+      values.push(localStorage.getItem(keys[i]));
+    }
+
+    this.setState({ savedVideos: values });
   };
 
   render() {
@@ -35,7 +50,10 @@ class App extends React.Component {
       <div className="ui container">
         <BrowserRouter>
           <div>
-            <SearchBar onFormSubmit={this.onTermSubmit} />
+            <SearchBar
+              onFormSubmit={this.onTermSubmit}
+              setSavedVideos={this.setSavedVideos}
+            />
             <Route
               path="/"
               exact

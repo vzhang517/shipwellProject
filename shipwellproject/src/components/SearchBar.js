@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./_SearchBar.scss";
 
 class SearchBar extends React.Component {
   state = { term: "" };
@@ -25,6 +27,16 @@ class SearchBar extends React.Component {
               onChange={this.onInputChange}
             />
           </div>
+          <Link to="/">
+            <button className="ui button" type="submit">
+              <i className="fitted search icon" />
+            </button>
+          </Link>
+          <Link to="/Saved">
+            <button className="ui button" onClick={this.setSavedVideos}>
+              <i className="fitted list ul icon" />
+            </button>
+          </Link>
         </form>
       </div>
     );

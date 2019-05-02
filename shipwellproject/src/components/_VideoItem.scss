@@ -1,0 +1,16 @@
+.videoitem_container {
+  display: flex;
+  a {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      padding-right: 10px;
+    }
+  }
+}
+
+.video-item.item img {
+  max-width: 180px;
+}
