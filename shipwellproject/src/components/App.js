@@ -39,8 +39,11 @@ class App extends React.Component {
       i = keys.length;
 
     while (i--) {
-      values.push(localStorage.getItem(keys[i]));
+      let currentVal = JSON.parse(localStorage.getItem(keys[i]));
+      values.push(currentVal);
     }
+
+    console.log(values);
 
     this.setState({ savedVideos: values });
   };
@@ -61,6 +64,7 @@ class App extends React.Component {
                 <VideosSearch
                   onVideoSelect={this.onVideoSelect}
                   videos={this.state.videos}
+                  selectedVideo={this.state.selectedVideo}
                 />
               )}
             />
@@ -75,7 +79,17 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route path="/saved" exact component={VideosSaved} />
+            <Route
+              path="/saved"
+              exact
+              render={() => (
+                <VideosSaved
+                  onVideoSelect={this.onVideoSelect}
+                  videos={this.state.savedVideos}
+                  selectedVideo={this.state.selectedVideo}
+                />
+              )}
+            />
           </div>
         </BrowserRouter>
       </div>

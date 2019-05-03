@@ -5,18 +5,18 @@ import "./_VideoItem.scss";
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    <div className="videoitem_container item">
-      <div onClick={() => onVideoSelect(video)}>
-        <Link to="/Player">
+    <div className="videoitem_container">
+      <Link to="/Player">
+        <div onClick={() => onVideoSelect(video)} className="videoitem item">
           <img
             alt={video.snippet.title}
             className="ui image"
             src={video.snippet.thumbnails.medium.url}
           />
-          <div className="content">
-            <div className="header">{video.snippet.title}</div>
-          </div>
-        </Link>
+        </div>
+      </Link>
+      <div className="content">
+        <div className="header">{video.snippet.title}</div>
       </div>
       <SaveButton video={video} />
     </div>

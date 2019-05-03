@@ -1,14 +1,26 @@
 .videoitem_container {
   display: flex;
-  a {
-    display: flex !important;
-    align-items: center;
-    cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
 
-    img {
-      padding-right: 10px;
-    }
+  .videoitem {
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer;
   }
+
+  .itemtext {
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+}
+
+.videoitem_container:not(:last-child) {
+  margin-bottom: 14px;
 }
 
 .video-item.item img {

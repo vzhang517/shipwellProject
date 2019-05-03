@@ -1,7 +1,11 @@
 import React from "react";
+import VideoList from "../VideoList";
 
-const VideosSaved = () => {
-  return <div>VideosSaved</div>;
+const VideosSaved = ({ videos, onVideoSelect }) => {
+  return (
+    <div>
+      <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+    </div>
+  );
 };
-
 export default VideosSaved;

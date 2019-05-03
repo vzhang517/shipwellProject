@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./_SearchBar.scss";
 
 class SearchBar extends React.Component {
@@ -11,8 +11,9 @@ class SearchBar extends React.Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-
+    console.log(this.state.term);
     this.props.onFormSubmit(this.state.term);
+    this.props.history.push("/");
   };
 
   render() {
@@ -27,20 +28,20 @@ class SearchBar extends React.Component {
               onChange={this.onInputChange}
             />
           </div>
-          <Link to="/">
-            <button className="ui button" type="submit">
-              <i className="fitted search icon" />
-            </button>
-          </Link>
-          <Link to="/Saved">
-            <button className="ui button" onClick={this.setSavedVideos}>
-              <i className="fitted list ul icon" />
-            </button>
-          </Link>
         </form>
+        <Link to="/">
+          <button className="ui button" onClick={this.onFormSubmit}>
+            <i className="fitted search icon" />
+          </button>
+        </Link>
+        <Link to="/Saved">
+          <button className="ui button" onClick={this.props.setSavedVideos}>
+            <i className="fitted list ul icon" />
+          </button>
+        </Link>
       </div>
     );
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
