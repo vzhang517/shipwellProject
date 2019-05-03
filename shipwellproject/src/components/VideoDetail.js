@@ -1,4 +1,5 @@
 import React from "react";
+import SaveButton from "./SaveButton";
 
 const VideoDetail = ({ video }) => {
   if (!video) {
@@ -15,6 +16,7 @@ const VideoDetail = ({ video }) => {
       <div className="ui segment">
         <h4 className="ui header">{video.snippet.title}</h4>
         <p>{video.snippet.description}</p>
+        <SaveButton video={video} />
       </div>
     </div>
   );

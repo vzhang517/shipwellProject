@@ -1,0 +1,5 @@
+@import "../../styles/_mixins.scss";
+
+.videossaved_container {
+  @include margins;
+}

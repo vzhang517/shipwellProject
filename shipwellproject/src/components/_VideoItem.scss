@@ -15,14 +15,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 120px;
+
+    @media only screen and (min-width: 481px) {
+      white-space: normal;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      white-space: nowrap;
+    }
   }
 }
 
 .videoitem_container:not(:last-child) {
   margin-bottom: 14px;
-}
-
-.video-item.item img {
-  max-width: 180px;
 }

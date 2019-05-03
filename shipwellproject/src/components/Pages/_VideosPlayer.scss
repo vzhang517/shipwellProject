@@ -2,4 +2,23 @@
 
 .videosplayer_container {
   @include margins;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .videosplayer_list {
+    margin-top: 15px;
+  }
+
+  @media only screen and (min-width: 1025px) {
+    flex-direction: row;
+    .videosplayer_player {
+      flex-basis: calc(70% - 15px);
+    }
+
+    .videosplayer_list {
+      flex-basis: 30%;
+      margin-top: 0px;
+    }
+  }
 }

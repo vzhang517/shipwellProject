@@ -16,7 +16,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
         </div>
       </Link>
       <div className="content">
-        <div className="header">{video.snippet.title}</div>
+        <div className="itemtext">{video.snippet.title}</div>
       </div>
       <SaveButton video={video} />
     </div>

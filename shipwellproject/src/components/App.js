@@ -9,10 +9,15 @@ import youtube from "../apis/youtube";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null, savedVideos: [] };
 
+  // Display some videos after component renders
+  // Also grab stored video data from local storage
   componentDidMount() {
     this.onTermSubmit("planet earth");
+    this.setSavedVideos();
   }
 
+  // Setting state videos to items from reponse
+  // Setting state selectedvideo to the first item we get back
   onTermSubmit = async term => {
     const response = await youtube.get("/search", {
       params: {
@@ -28,11 +33,13 @@ class App extends React.Component {
     });
   };
 
+  // Function for setting the selectedvideo
   onVideoSelect = video => {
     this.setState({ selectedVideo: video });
     console.log(video);
   };
 
+  // Grabbing all stored video data from local storage
   setSavedVideos = () => {
     let values = [],
       keys = Object.keys(localStorage),

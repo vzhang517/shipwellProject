@@ -29,16 +29,18 @@ class SearchBar extends React.Component {
             />
           </div>
         </form>
-        <Link to="/">
-          <button className="ui button" onClick={this.onFormSubmit}>
-            <i className="fitted search icon" />
-          </button>
-        </Link>
-        <Link to="/Saved">
-          <button className="ui button" onClick={this.props.setSavedVideos}>
-            <i className="fitted list ul icon" />
-          </button>
-        </Link>
+        <div className="searchbar_buttons">
+          <Link to="/">
+            <button className="ui button" onClick={this.onFormSubmit}>
+              <i className="fitted search icon" />
+            </button>
+          </Link>
+          <Link to="/Saved">
+            <button className="ui button" onClick={this.props.setSavedVideos}>
+              <i className="fitted list ul icon" />
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
