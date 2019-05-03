@@ -1,4 +1,5 @@
 import React from "react";
+
 import VideoList from "../VideoList";
 import VideoDetail from "../VideoDetail";
 import "./_VideosPlayer.scss";
