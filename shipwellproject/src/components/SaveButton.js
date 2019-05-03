@@ -7,6 +7,7 @@ class SaveButton extends React.Component {
     this.isSaved();
   }
 
+  // Sets the state of current item, whether it's saved or not
   isSaved = () => {
     if (localStorage.getItem(this.props.video.id.videoId) === null) {
       this.setState({ saved: false });
@@ -15,6 +16,7 @@ class SaveButton extends React.Component {
     }
   };
 
+  // Function saves video being passed to local storage
   onSaveClick = event => {
     localStorage.setItem(
       this.props.video.id.videoId,
@@ -24,11 +26,13 @@ class SaveButton extends React.Component {
     this.isSaved();
   };
 
+  // Function deletes video from local storage using videoId passed
   onUnSaveClick = event => {
     localStorage.removeItem(this.props.video.id.videoId);
     this.isSaved();
   };
 
+  // conditional rendering based on saved value, will display solid heard or outline heart
   render() {
     if (this.state.saved === false) {
       return (

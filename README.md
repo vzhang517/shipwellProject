@@ -23,6 +23,8 @@ API key is pushed into repo. This is not good practice and I would usually store
 
 The app is pretty simple, I basically built a simpler version of youtube. It allows you to search and play videos. You can also save and unsave your favorite videos, the app stores this data local memory.
 
+I decided not to use Redux for this project because it was fairly small in scale, and managing state was not an issue with this number of components. Context system also wasnt necessary as most components traversing downwards made use of the props data, with the exception of the page components.
+
 ### Dependencies
 
 A quick rundown of some dependencies I used for this project:

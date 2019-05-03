@@ -25,8 +25,6 @@ class App extends React.Component {
       }
     });
 
-    console.log(response.data.items);
-
     this.setState({
       videos: response.data.items,
       selectedVideo: response.data.items[0]
@@ -36,7 +34,6 @@ class App extends React.Component {
   // Function for setting the selectedvideo
   onVideoSelect = video => {
     this.setState({ selectedVideo: video });
-    console.log(video);
   };
 
   // Grabbing all stored video data from local storage
@@ -49,8 +46,6 @@ class App extends React.Component {
       let currentVal = JSON.parse(localStorage.getItem(keys[i]));
       values.push(currentVal);
     }
-
-    console.log(values);
 
     this.setState({ savedVideos: values });
   };

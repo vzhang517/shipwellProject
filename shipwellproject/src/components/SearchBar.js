@@ -5,13 +5,15 @@ import "./_SearchBar.scss";
 class SearchBar extends React.Component {
   state = { term: "" };
 
+  // Sets state to whatever is being typed in the input
   onInputChange = event => {
     this.setState({ term: event.target.value });
   };
 
+  // Function called when form submited, runs onFormSubmit function in parent to set parent state: term
+  // Also reroutes when form submitted to root view
   onFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.term);
     this.props.onFormSubmit(this.state.term);
     this.props.history.push("/");
   };
